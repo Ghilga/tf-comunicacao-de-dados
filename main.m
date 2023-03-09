@@ -1,10 +1,10 @@
 clear;
 close all;
 
-fonte(1)
-codificador(1)
-modulador(1)
-ruido(1)
-demodulador(1)
-decodificador(1)
-receptor(1)
+entrada = fonte(16)
+%codificador(1)
+entrada_modulada = modulador_qam(entrada, 4) %16-QAM basico, sem codificação
+%ruido(1)
+%demodulador(1)
+%decodificador(1)
+%receptor(1)
