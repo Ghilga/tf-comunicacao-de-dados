@@ -3,5 +3,4 @@
 % num_bits: Tamanho da entrada
 function saida = decodificador(entrada, trellis, num_bits)
     saida = vitdec(entrada, trellis, num_bits, 'trunc', 'hard');
-    
 end
