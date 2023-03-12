@@ -15,7 +15,7 @@ function ber = calcular_ber(entrada, entrada_modulada, trellis, num_b, num_bits_
     NA = sqrt(NP); %vetor de amplitudes do ruido
     
     for i = 1:length(Eb_N0_lin)
-        n = NA(i)*complex(randn(1, num_bits_codif/M), randn(1, num_bits_codif/M))*sqrt(0.5); %vetor de ru�do complexo com desvio padr�o igual a uma posi��o do vetor NA
+        n = ruido( NA, 2, num_bits_codif, M,i); %vetor de ru�do complexo com desvio padr�o igual a uma posi��o do vetor NA
         r = entrada_modulada + n; % vetor recebido
         demod = demodulador_qam(r, M); % recupera a informacao (sinal demodulado)
         saida_demodulada = reshape(de2bi(demod, 'left-msb'), 1, num_bits_codif); % converte a saida demodulada para bits
