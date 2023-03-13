@@ -1,7 +1,7 @@
 clear;
 close all;
 
-num_b = 1000000; %número de bits a serem simulados
+num_b = 100000; %número de bits a serem simulados
 entrada = fonte(num_b);
 M_QAM = 4; % quantidade de bits por simbolo QAM (utilizado para definir a dimensão da modulação)
 M_PSK = 2; % quantidade de bits por simbolo PSK
@@ -13,6 +13,9 @@ Eb_N0_lin = 10 .^ (Eb_N0_dB/10); %faixa de Eb/N0 linearizada
 % Inicializar a treliça para cada codificação.
 % Aqui sao definidos os 3 codigos convolucionais a serem usados na
 % simulação
+
+entrada = convolucionais(entrada, 2); %Codigo convilucionais de saida 2
+num_b = length(entrada);
 trellis(1) = criar_trellis(2,2,3);
 trellis(2) = criar_trellis(5,25,37);
 trellis(3) = criar_trellis(7,131,177);
